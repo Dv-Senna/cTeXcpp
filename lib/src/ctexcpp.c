@@ -18,12 +18,17 @@ CTEX_Result CTEX_Init() {
 		return CTEX_RESULT_FAILURE;
 	}
 
+	if (CTEX_SetBuildFolder("latex") != CTEX_RESULT_SUCCESS) {
+		CTEX_PushError("Failure in `CTEX_Init` : Can't set build folder");
+		return CTEX_RESULT_FAILURE;
+	}
+
 	return CTEX_RESULT_SUCCESS;
 }
 
 
 void CTEX_Quit() {
-
+	CTEX_FreeConfiguration();
 }
 
 
