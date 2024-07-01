@@ -1,12 +1,17 @@
 #pragma once
 
+#include "ctexcpp/bool.h"
+#include "ctexcpp/configuration.h"
+#include "ctexcpp/error.h"
+#include "ctexcpp/result.h"
+
 
 #ifdef __cplusplus
 	extern "C" {
 #endif
 
 
-void CTEX_Init();
+CTEX_Result CTEX_Init();
 void CTEX_Quit();
 
 
