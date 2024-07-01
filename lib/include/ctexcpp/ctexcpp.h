@@ -3,6 +3,8 @@
 #include "ctexcpp/bool.h"
 #include "ctexcpp/configuration.h"
 #include "ctexcpp/error.h"
+#include "ctexcpp/hash.h"
+#include "ctexcpp/numberEncoder.h"
 #include "ctexcpp/result.h"
 
 

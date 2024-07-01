@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <ctexcpp/ctexcpp.h>
 
@@ -10,6 +11,13 @@ int main() {
 		POOL_ALL_ERRORS;
 
 	printf("LaTeX Preambule : %s\n", CTEX_GetLaTeXPreambule());
+
+	CTEX_Hash hash = CTEX_HashString("Hello World!");
+	printf("HASH : %d\n", hash);
+
+	const char *base64 = CTEX_EncodeNumberToBase64(hash);
+	printf("BASE64 : %s\n", base64);
+	free((char*)base64);
 
 	CTEX_Quit();
 

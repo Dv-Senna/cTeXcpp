@@ -36,7 +36,7 @@ set_property(TARGET ${SANDBOX_NAME} PROPERTY C_STANDARD ${PROJECT_C_DIALECT})
 #target_link_directories(./lib)
 
 target_link_libraries(
-	${SANDBOX_NAME} PRIVATE ${PROJECT_NAME}
+	${SANDBOX_NAME} PRIVATE ${PROJECT_NAME} m
 )
 
 
