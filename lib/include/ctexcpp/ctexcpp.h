@@ -5,6 +5,7 @@
 #include "ctexcpp/error.h"
 #include "ctexcpp/hash.h"
 #include "ctexcpp/numberEncoder.h"
+#include "ctexcpp/parser.h"
 #include "ctexcpp/result.h"
 
 

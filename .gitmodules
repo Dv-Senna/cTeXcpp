@@ -1,0 +1,3 @@
+[submodule "vendors/stb"]
+	path = vendors/stb
+	url = git@github.com:nothings/stb.git

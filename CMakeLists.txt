@@ -12,6 +12,12 @@ set(PROJECT_C_DIALECT 23)
 
 option(BUILD_TESTS "BUILD_TESTS" OFF)
 
+
+set(DEPENDENCIES_INCLUDE_FOLDER vendors/stb)
+
+include_directories(${DEPENDENCIES_INCLUDE_FOLDER})
+
+
 add_subdirectory(lib)
 add_subdirectory(sandbox)
 if (BUILD_TESTS)
