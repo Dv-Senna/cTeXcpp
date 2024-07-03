@@ -41,3 +41,6 @@ vscode/*
 # scripts
 *.sh
 *.bat
+
+# latex folder
+latex/*

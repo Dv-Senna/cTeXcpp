@@ -66,14 +66,18 @@ CTEX_Image parseWithoutHash(const char *latex, int fontSize, const char *fileNam
 	size_t latexLength = strlen(latex);
 	size_t preambuleLength = strlen(CTEX_GetLaTeXPreambule());
 
-	latexFileContent.size = 59 + latexLength + preambuleLength;
+	float fontSizeInPT = fontSize * 72.27f / 300.f;
+
+	latexFileContent.size = 130 + latexLength + preambuleLength;
 	latexFileContent.str = malloc(latexFileContent.size + 1);
 	snprintf(latexFileContent.str, latexFileContent.size + 1, "\
 \\documentclass[preview]{standalone}\n\
 %s\n\
 \\begin{document}\n\
-%s\n\
-\\end{document}", CTEX_GetLaTeXPreambule(), latex);
+{\\fontsize{%.4fpt}{%.4fpt}\\selectfont\n\
+$%s$\n\
+}\n\
+\\end{document}", CTEX_GetLaTeXPreambule(), fontSizeInPT, fontSizeInPT, latex);
 
 	printf(latexFileContent.str);
 

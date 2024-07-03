@@ -22,7 +22,7 @@ int main() {
 	free((char*)base64);
 
 
-	CTEX_ParseLaTeX("E = \\gamma m_0 c^2", 10, CTEX_TRUE);
+	CTEX_ParseLaTeX("E = \\gamma m_0 c^2", 100, CTEX_TRUE);
 
 
 	CTEX_Quit();
