@@ -6,14 +6,7 @@
 
 
 CTEX_Result CTEX_Init() {
-	if (CTEX_SetLaTeXPreambule("\
-		\\usepackage{mathrsfs}\n\
-		\\usepackage{slashed}\n\
-		\\usepackage{amsmath}\n\
-		\\usepackage{amssymb}\n\
-		\\usepackage{xcolor}\n\
-		\\usepackage{fix-cm}"
-	) != CTEX_RESULT_SUCCESS) {
+	if (CTEX_SetLaTeXPreambule(" ") != CTEX_RESULT_SUCCESS) {
 		CTEX_PushError("Failure in `CTEX_Init` : Can't set LaTeX preambule");
 		return CTEX_RESULT_FAILURE;
 	}

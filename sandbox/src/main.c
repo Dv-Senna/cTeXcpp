@@ -22,7 +22,8 @@ int main() {
 	free((char*)base64);
 
 
-	CTEX_ParseLaTeX("E = \\gamma m_0 c^2", 100, CTEX_TRUE);
+	if (CTEX_ParseLaTeX("E = \\gamma m_0 c^2", 100, CTEX_TRUE).pixels == NULL)
+		POOL_ALL_ERRORS;
 
 
 	CTEX_Quit();
