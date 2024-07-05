@@ -1,14 +1,15 @@
 #include "ctexcpp/parser.h"
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #ifdef CTEX_WINDOWS
+	#include <direct.h>
 #else
 	#include <unistd.h>
 	#include <sys/stat.h>
-	#include <errno.h>
 #endif
 
 #include <stb_image.h>
@@ -21,7 +22,10 @@
 
 CTEX_Result makedir(const char *directory) {
 #ifdef CTEX_WINDOWS
-	_mkdir();
+	if (_mkdir(directory) != 0 && errno != EEXIST) {
+		CTEX_PushError("Can't create folder on windows");
+		return CTEX_RESULT_FAILURE;
+	}
 #else
 	if (mkdir(directory, S_IRWXU) != 0 && errno != EEXIST) {
 		CTEX_PushError("Can't create folder on unix");
@@ -93,10 +97,10 @@ CTEX_Image parseWithoutHash(const char *latex, int fontSize, const char *fileNam
 
 	float fontSizeInPT = fontSize * 72.27f / 300.f;
 
-	latexFileContent.size = 260 + latexLength + preambuleLength;
+	latexFileContent.size = 272 + latexLength + preambuleLength;
 	latexFileContent.str = malloc(latexFileContent.size + 1);
 	snprintf(latexFileContent.str, latexFileContent.size + 1, "\
-\\documentclass[preview]{standalone}\n\
+\\documentclass[preview, border=1pt]{standalone}\n\
 \\usepackage{mathrsfs}\n\
 \\usepackage{slashed}\n\
 \\usepackage{amsmath}\n\
