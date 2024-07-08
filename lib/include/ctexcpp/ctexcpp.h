@@ -14,7 +14,14 @@
 #endif
 
 
+/**
+ * @brief Initialize ctexcpp
+ * @return `CTEX_RESULT_SUCCESS` if succeed, an error code otherwise
+ */
 CTEX_Result CTEX_Init();
+/**
+ * @brief Quit ctexcpp. All ressources you allocated must have been freed prior to calling this function
+ */
 void CTEX_Quit();
 
 

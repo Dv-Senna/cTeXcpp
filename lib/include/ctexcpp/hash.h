@@ -10,6 +10,9 @@
 
 typedef uint64_t CTEX_Hash;
 
+/**
+ * @brief Hash a string into an uint64_t hash. Don't use it for cryptographic purposes
+ */
 CTEX_Hash CTEX_HashString(const char *str);
 
 
